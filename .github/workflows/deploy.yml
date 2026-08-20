@@ -32,5 +32,5 @@ jobs:
             - name: deploy to azure webapp
               uses: azure/webapps-deploy@v2
               with:
-                app_name: hdfc-web-app95
+                app-name: hdfc-web-app95
                 package: publish
