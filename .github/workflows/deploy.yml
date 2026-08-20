@@ -1,6 +1,6 @@
 name: Terraform infra an deploy
 on:
-    workflow-dispatch:
+    workflow_dispatch:
     push:
         branches:
             - main
