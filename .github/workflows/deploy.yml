@@ -14,13 +14,13 @@ jobs:
               uses: azure/login@v1
               with:
                 creds: ${{secrets.AZURE_SECRET}}
-            - name: setup terraform
-              uses: hashicorp/setup-terraform@v3
-            - working-directory: terraform
-              run: terraform init
-            - name: terraform apply
-              working-directory: terraform
-              run: terraform apply -auto-approve
+            # - name: setup terraform
+            #   uses: hashicorp/setup-terraform@v3
+            # - working-directory: terraform
+            #   run: terraform init
+            # - name: terraform apply
+            #   working-directory: terraform
+            #   run: terraform apply -auto-approve
             - name: Setup dotnet
               uses: actions/setup-dotnet@v6
               with:
@@ -29,8 +29,10 @@ jobs:
               run: dotnet restore
             - name: publish application
               run: dotnet publish HDFCApplication.csproj -c Release -o publish
-            - name: deploy to azure webapp
-              uses: azure/webapps-deploy@v2
-              with:
-                app_name: hdfc-web-app95
-                package: publish
+            - name: show repo structure
+              run: ls -R
+            # - name: deploy to azure webapp
+            #   uses: azure/webapps-deploy@v2
+            #   with:
+            #     app_name: hdfc-web-app95
+            #     package: publish
